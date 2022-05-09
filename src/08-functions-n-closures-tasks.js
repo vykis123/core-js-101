@@ -23,9 +23,7 @@
  *
  */
 function getComposition(f, g) {
-  const composition = function (...args) {
-    return f(g(...args));
-  };
+  const composition = (...args) => f(g(...args));
   return composition;
 }
 
@@ -46,9 +44,7 @@ function getComposition(f, g) {
  *
  */
 function getPowerFunction(exponent) {
-  const exponent2 = function (number) {
-    return number ** exponent;
-  };
+  const exponent2 = (number) => number ** exponent;
   return exponent2;
 }
 
@@ -88,7 +84,7 @@ function getPolynom() {
  */
 function memoize(func) {
   const memory = new Map();
-  return function (arg) {
+  return (arg) => {
     if (memory.has(arg)) {
       // console.log('using memory');
       return memory.get(arg);
@@ -164,9 +160,8 @@ function logger(/* func, logFunc */) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 function partialUsingArguments(fn, ...args1) {
-  return function (...args) {
-    return fn(...args1, ...args);
-  };
+  const func = (...args) => fn(...args1, ...args);
+  return func;
 }
 
 /**

@@ -43,9 +43,9 @@ function willYouMarryMe(isPositiveAnswer) {
     }
   });
 
-  result.catch((error) => {
-    console.log(error);
-  });
+  // result.catch((error) => {
+  //   throw TypeError(console.log(error));
+  // });
   const newRes = result.then((value) => value);
 
   return newRes;
